@@ -1,0 +1,6 @@
+steps:
+  - id: build
+    name: "gcr.io/cloud-builders/docker"
+    args: [ "build", "-t", "gcr.io/dev-rpxapps/osslsigncode", "-f", "build/Dockerfile", "." ]
+images:
+  - "gcr.io/dev-rpxapps/osslsigncode"
