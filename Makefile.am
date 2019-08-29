@@ -13,4 +13,4 @@ AM_CFLAGS = $(GSF_CFLAGS) $(OPENSSL_CFLAGS) $(OPTIONAL_LIBCURL_CFLAGS)
 bin_PROGRAMS = osslsigncode
 
 osslsigncode_SOURCES = osslsigncode.c
-osslsigncode_LDADD = $(GSF_LIBS) $(OPENSSL_LIBS) $(OPTIONAL_LIBCURL_LIBS)
+osslsigncode_LDADD = $(GSF_LIBS) -lpthread -l:libssl.a -l:libcrypto.a -ldl $(OPTIONAL_LIBCURL_LIBS)

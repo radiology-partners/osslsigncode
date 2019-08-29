@@ -5,6 +5,6 @@ COPY . .
 RUN ./autogen.sh && ./configure && make
 
 FROM debian:unstable-slim
-RUN  apt-get update && apt-get -y install curl libssl1.1
+RUN  apt-get update && apt-get -y install curl
 COPY --from=builder /build/osslsigncode /bin/osslsigncode
 ENTRYPOINT [ "/bin/osslsigncode" ]
