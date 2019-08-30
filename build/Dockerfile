@@ -39,6 +39,6 @@ RUN export LIBRARY_PATH=/dist/openssl/lib:/dist/libgsf/lib:/dist/zlib/lib \
     && find /dist -name "*.so*" -delete \
     && ./autogen.sh && ./configure && make
 
-FROM gcr.io/distroless/static
+FROM alpine:3
 COPY --from=builder /build/osslsigncode/osslsigncode /bin/osslsigncode
 ENTRYPOINT [ "/bin/osslsigncode" ]
